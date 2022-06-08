@@ -9,3 +9,23 @@
 /* style timer */
 
 /*  style numbers at bottom of the screen */
+
+h1 {
+    text-align: center;
+}
+
+
+
+#cscore {
+    text-align: justify left;
+}
+
+#ctime {
+    text-align: justify right;
+}
+
+.gameArray {
+    border: 2px solid black;
+    height: 900px; 
+    width: 900px;
+}
