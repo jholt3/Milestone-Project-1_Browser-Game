@@ -29,6 +29,7 @@ let solutionArray = [
     7, 1, 2, 6, 4, 5, 9, 3, 8, 
 ]
 
+
 // Create a boolean function that allows number to be included or rejected depending on accuracy
 
 

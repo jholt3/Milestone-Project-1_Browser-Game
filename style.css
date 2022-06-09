@@ -1,31 +1,51 @@
-/*  style header */
-
-/*  style board */
-
-/*  style numbers */
-
-/*  style score */
-
-/* style timer */
-
-/*  style numbers at bottom of the screen */
 
 h1 {
     text-align: center;
 }
 
-
+h2 {
+    text-align: center;
+}
 
 #cscore {
-    text-align: justify left;
+    padding-right: 15em;
 }
 
 #ctime {
-    text-align: justify right;
+    padding-right: 2em;
 }
 
-.gameArray {
-    border: 2px solid black;
-    height: 900px; 
-    width: 900px;
+table {
+    width: 36em;
+    height: 36em;
+    border-collapse: collapse;
+    border: 3px solid black;
+}
+
+td, th {
+    width: 4em;
+    height: 4em;
+    text-align: center;
+    border: 1px solid black;
+
+}
+
+.rBorder {
+    border-right: 3px solid black;
+}
+
+.bBorder {
+    border-bottom: 3px solid black;
+}
+
+.table2 {
+    width: 36em;
+    height: 4em;
+    margin: 2em;
+    border-collapse: collapse;
+    border: 3px solid black;
+}
+
+.value {
+    border: 3px solid black;
 }
