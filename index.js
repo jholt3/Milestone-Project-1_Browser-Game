@@ -1,5 +1,9 @@
+// Define selected row cells and selected grid cells
 let rSelected = null;
 let gSelected = null;
+
+//Set score
+let score = 0;
 
 
 // 9x9 grid numbers (potentially fetch data from API)
@@ -28,25 +32,25 @@ let solutionArray = [
 ]
 
 
-// Boolean function that allows number to be included or rejected depending on accuracy
+
 
 // Function that tracks time  and displays it
 setInterval(myTimer, 1000);
 
 function myTimer() {
     const date = new Date();
-    document.getElementById("cTime").innerHTML = date.toLocaleTimeString();
+    document.getElementById("timeDisplay").innerHTML = date.toLocaleTimeString();
 }
-
-// Function that keeps score and displays it
 
 
 // Function that populates the cells in the game grid and row of numbers that can be selected (Referenced tutorial here:https://www.youtube.com/watch?v=S4uRtTb8U-U)
 
 window.onload = function(){
     populateCells();
+  
 }
 
+// Row of numbers
 function populateCells(){
     for (let i=1; i<=9; i++) {
         let rCell = document.createElement('div');
@@ -57,6 +61,7 @@ function populateCells(){
         document.getElementById('row').appendChild(rCell);
     }
 
+    // Game grid
     for (let x=0; x<9; x++) {
         for (let y=0; y<9; y++) {
             let gCell = document.createElement('div');
@@ -64,12 +69,6 @@ function populateCells(){
         if (grid[x][y] != "e"){
             gCell.innerText = grid[x][y];
             gCell.classList.add('gStyle');
-        }
-        if (x == 2 || x == 5) {
-            gCell.classList.add('hBorder');
-        }
-        if (x == 2 || x == 5) {
-            gCell.classList.add('vBorder');
         }
             gCell.addEventListener('click', selectGCell);
             gCell.classList.add('gCell');
@@ -88,8 +87,27 @@ function selectRCell() {
     rSelected.classList.add('cSelected');
 }
 
+// Function that places the selected number in a grid cell when it is clicked (Referenced tutorial here:https://www.youtube.com/watch?v=S4uRtTb8U-U )
 function selectGCell() {
     if (rSelected) {
-        this.innerText = rSelected.id;
+        if (this.innerText !='') {
+            return;
+        }
+        
+
+//location of cell in the grid (i.e. 0-0, 0-1, etc)
+        let location = this.id.split('e');
+        let x = parseInt(location[0]);
+        let y = parseInt(location[1]);
+
+        if(solutionArray[x][y] == rSelected.id) {
+            this.innerText = rSelected.id;
+        }
+// Function that keeps score and displays it 
+        else {
+            score +=1;
+            document.getElementById('score').innerText = score;
+        }
     }
+
 }
